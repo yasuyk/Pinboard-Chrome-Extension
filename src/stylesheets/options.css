@@ -1,0 +1,36 @@
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 10px;
+    font-size: 14px;
+    min-width: 600px;
+}
+
+h1{
+    font-size: 21px;
+    margin: 0;
+    padding: 0;
+    height: 67px;
+    line-height: 67px;
+    background-image: url('../images/pinboard_icon_64.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 76px;
+}
+
+h2{
+    margin: 12px 0 6px 0;
+    padding: 3px;
+    border-top: 1px solid #9cc2ef;
+    background-color: #ebeff9;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h3{
+    margin-top: 0;
+    font-size: 15px;
+}
+
+.notes{
+    border-top: 1px solid #cccccc;
+}

@@ -1,0 +1,25 @@
+
+.item {
+    padding: 4px 14px;
+    margin-left: 0;
+    list-style: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor:default;
+    width: 115px;
+}
+
+.border {
+    border: solid 1px #cdcdcd;
+}
+
+.item:hover{
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #0188cc;
+}
