@@ -28,3 +28,9 @@ install from [Chrome Web Store][web store]
 [fork]: http://help.github.com/fork-a-repo/
 [branch]: http://learn.github.com/p/branching.html
 [pr]: http://help.github.com/send-pull-requests/
+
+## License
+
+See [LICENSE][license].
+
+[license]: https://github.com/yasuyk/Pinboard-Chrome-Extension/blob/master/LICENSE
