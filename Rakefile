@@ -53,7 +53,8 @@ task :bump, [:version] do |t, args|
   version_text = File.read(version_path).sub(/"version" : "\d\.\d\.\d"/, "\"version\" : \"#{args.version}\"")
   say "Updating Pinboard to version %s" % args.version
   File.open(version_path, 'w') { |f| f.write version_text }
-  sh 'git commit -am "bump version to %s"' % pinboard_version
+  sh 'git commit -am "bump version to %s"' % args.version
+  sh 'git tag -a %s -m %s' % [args.version, args.version]
 end
 
 
