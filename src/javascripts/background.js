@@ -41,11 +41,13 @@ function readLater() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var tab = tabs[0];
 
-    readlater = open(
+    var readlater = open(
       BASE_URL + '/add?later=yes&noui=yes&jump=close&url=' +
         encodeURIComponent(tab.url) + '&title=' +
         encodeURIComponent(tab.title), 'Pinboard',
-      'toolbar=no,width=0,height=0');
+      'toolbar=no');
+
+    readlater.resizeTo(0, 0);
     readlater.blur();
   });
 }
