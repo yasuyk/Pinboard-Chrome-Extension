@@ -33,7 +33,7 @@
   ],
 
   "background": {
-    "scripts": ["javascripts/background.js"],
+    "scripts": ["javascripts/pinboard.js", "javascripts/background.js"],
     "persistent": false
   },
 
