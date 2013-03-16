@@ -1,4 +1,4 @@
-describe('background', function() {
+describe('chrome/event_listener', function() {
   beforeEach(function() {
     chrome = {
       tabs: {
@@ -27,7 +27,7 @@ describe('background', function() {
   it('should add listeners when loaded.', function() {
 
     runs(function() {
-      require(['background']);
+      require(['chrome/event_listener']);
     });
     waits(100);
 
