@@ -57,4 +57,10 @@ task :bump, [:version] do |t, args|
   sh 'git tag -a %s -m %s' % [args.version, args.version]
 end
 
+desc "run jasmine with phantomjs"
+task :run_jasmine do
+  # You have to install phantomjs first.
+  # Under OS X, install by 'brew install phantomjs'.
+  sh 'phantomjs /usr/local/share/phantomjs/examples/run-jasmine.js src/spec/SpecRunner.html'
+end
 

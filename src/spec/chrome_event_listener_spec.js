@@ -18,10 +18,18 @@ describe('chrome/event_listener', function() {
     spyOn(chrome.tabs.onUpdated, 'addListener');
     spyOn(chrome.commands.onCommand, 'addListener');
 
+    pinboard = {
+      contextMenus: {
+        setup: function() {}
+      }
+    };
+    spyOn(pinboard.contextMenus, 'setup');
+
     saveToPinboard = jasmine.createSpy();
     readLater = jasmine.createSpy();
     unreadBookmarks = jasmine.createSpy();
     allBookmarks = jasmine.createSpy();
+    saveToPinboardPopup = jasmine.createSpy();
   });
 
   it('should add listeners when loaded.', function() {
@@ -49,6 +57,9 @@ describe('chrome/event_listener', function() {
       expect(unreadBookmarks).toHaveBeenCalled();
       listener('all_bookmarks');
       expect(readLater).toHaveBeenCalled();
+
+      // should call pinboard.contextMenus.setup when chrome.runtime.onInstalled
+      expect(pinboard.contextMenus.setup).toHaveBeenCalled();
     });
   });
 });
