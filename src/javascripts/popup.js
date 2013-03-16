@@ -1,12 +1,3 @@
-
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  if (changeInfo.status == 'loading') {
-    if (tab.url == 'https://pinboard.in/add') {
-      chrome.tabs.remove(tabId);
-    }
-  }
-});
-
 document.addEventListener('DOMContentLoaded', function() {
   chrome.runtime.getBackgroundPage(
     function(page) {
