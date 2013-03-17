@@ -34,10 +34,8 @@ end
 
 
 Rake::PackageTask.new("pinboard", pinboard_version) do |t|
-  FileUtils.rm_rf('src/pkg')
-  FileUtils.cd('src')
   t.need_zip = true
-  p t.package_files.include("**/*").exclude(/spec.*/)
+  t.package_files.include("src/**/*").exclude(/spec.*/)
 end
 
 desc "Displays the current version"
