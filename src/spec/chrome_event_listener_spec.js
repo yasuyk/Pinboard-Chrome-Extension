@@ -1,4 +1,4 @@
-describe('background', function() {
+describe('chrome/event_listener', function() {
   beforeEach(function() {
     chrome = {
       tabs: {
@@ -18,16 +18,24 @@ describe('background', function() {
     spyOn(chrome.tabs.onUpdated, 'addListener');
     spyOn(chrome.commands.onCommand, 'addListener');
 
+    pinboard = {
+      contextMenus: {
+        setup: function() {}
+      }
+    };
+    spyOn(pinboard.contextMenus, 'setup');
+
     saveToPinboard = jasmine.createSpy();
     readLater = jasmine.createSpy();
     unreadBookmarks = jasmine.createSpy();
     allBookmarks = jasmine.createSpy();
+    saveToPinboardPopup = jasmine.createSpy();
   });
 
   it('should add listeners when loaded.', function() {
 
     runs(function() {
-      require(['background']);
+      require(['chrome/event_listener']);
     });
     waits(100);
 
@@ -49,6 +57,9 @@ describe('background', function() {
       expect(unreadBookmarks).toHaveBeenCalled();
       listener('all_bookmarks');
       expect(readLater).toHaveBeenCalled();
+
+      // should call pinboard.contextMenus.setup when chrome.runtime.onInstalled
+      expect(pinboard.contextMenus.setup).toHaveBeenCalled();
     });
   });
 });

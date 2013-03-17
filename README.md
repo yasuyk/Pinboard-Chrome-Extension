@@ -4,12 +4,23 @@
 
 Google Chrome Extention for Pinboard (http://pinboard.in).
 
-1. Save to Pinboard with popup (Selected text populates your description field).
-2. Shortcut menu for 'Read Later', 'Unread bookmarks', 'All bookmarks'.
-3. Customisable Keyboard Shortcuts for 'Save to Pinboard', 'Read Later', 'Unread bookmarks', 'All bookmarks'.
-
+### Shortcut menu for 'Save to Pinboard', 'Read Later', 'Unread bookmarks', 'All bookmarks'.
 ![](https://github.com/yasuyk/Pinboard-Chrome-Extension/raw/master/sample/png/screen_capture_01.png)
+
+### Customisable Keyboard Shortcuts for 'Save to Pinboard', 'Read Later', 'Unread bookmarks', 'All bookmarks'.
 ![](https://github.com/yasuyk/Pinboard-Chrome-Extension/raw/master/sample/png/screen_capture_02.png)
+
+### Save to Pinboard via context menus (by right-clicking).
+
+the following contents can be saved :
+
+   - web page
+   - selected URL
+   - selected text
+   - Image URL
+   - HTML5 Audio URL
+   - HTML5 Video URL
+![](https://github.com/yasuyk/Pinboard-Chrome-Extension/raw/master/sample/png/screen_capture_03.png)
 
 ## Install
 

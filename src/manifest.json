@@ -12,6 +12,7 @@
   "permissions": [
     "storage",
     "tabs",
+    "contextMenus",
     "http://*/",
     "https://*/"
   ],
@@ -33,13 +34,16 @@
   ],
 
   "background": {
-    "scripts": ["javascripts/pinboard.js", "javascripts/background.js"],
+    "scripts": ["javascripts/pinboard.js",
+                "javascripts/context_menus.js",
+                "javascripts/chrome/event_listener.js"],
     "persistent": false
   },
 
   "options_page": "options.html",
 
   "icons": {
+    "16": "images/pinboard_icon_16.png",
     "48": "images/pinboard_icon_48.png",
     "128": "images/pinboard_icon_128.png"
   },

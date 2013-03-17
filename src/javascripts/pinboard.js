@@ -1,3 +1,5 @@
+var pinboard = {};
+
 const REGEX_SAVE_URL = /^http[s]?\:\/\/pinboard\.in\/add/;
 
 function saveToPinboard() {

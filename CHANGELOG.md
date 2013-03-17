@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.7 (2013-03-17)
+
+[New] You can save to Pinboard via context menus.
+[New] add test code.
+
 ## 0.0.6 (2013-03-15)
 
 [CHANGED] When 'read later', minimize window.
