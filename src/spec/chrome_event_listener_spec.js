@@ -21,19 +21,21 @@ describe('chrome/event_listener', function() {
     pinboard = {
       contextMenus: {
         setup: function() {}
-      }
+      },
+      saveToPinboard: function() {},
+      readLater: function() {},
+      unreadBookmarks: function() {},
+      allBookmarks: function() {},
+      saveToPinboard: function() {}
     };
     spyOn(pinboard.contextMenus, 'setup');
-
-    saveToPinboard = jasmine.createSpy();
-    readLater = jasmine.createSpy();
-    unreadBookmarks = jasmine.createSpy();
-    allBookmarks = jasmine.createSpy();
-    saveToPinboardPopup = jasmine.createSpy();
+    spyOn(pinboard, 'saveToPinboard');
+    spyOn(pinboard, 'readLater');
+    spyOn(pinboard, 'unreadBookmarks');
+    spyOn(pinboard, 'allBookmarks');
   });
 
   it('should add listeners when loaded.', function() {
-
     runs(function() {
       require(['chrome/event_listener']);
     });
@@ -50,13 +52,13 @@ describe('chrome/event_listener', function() {
       listener = chrome.commands.onCommand.
         addListener.mostRecentCall.args[0];
       listener('save_to_pinboard');
-      expect(saveToPinboard).toHaveBeenCalled();
+      expect(pinboard.saveToPinboard).toHaveBeenCalled();
       listener('read_later');
-      expect(readLater).toHaveBeenCalled();
+      expect(pinboard.readLater).toHaveBeenCalled();
       listener('unread_bookmarks');
-      expect(unreadBookmarks).toHaveBeenCalled();
+      expect(pinboard.unreadBookmarks).toHaveBeenCalled();
       listener('all_bookmarks');
-      expect(readLater).toHaveBeenCalled();
+      expect(pinboard.readLater).toHaveBeenCalled();
 
       // should call pinboard.contextMenus.setup when chrome.runtime.onInstalled
       expect(pinboard.contextMenus.setup).toHaveBeenCalled();

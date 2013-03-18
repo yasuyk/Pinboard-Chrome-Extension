@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+  'use strict';
   chrome.runtime.getBackgroundPage(
     function(page) {
-      var methods = {
-        save_to_pinboard: page.saveToPinboard,
-        read_later: page.readLater,
-        unread_bookmarks: page.unreadBookmarks,
-        all_bookmarks: page.allBookmarks
-      };
-      for (var key in methods) {
-        document.querySelector('#' + key).addEventListener(
-          'click', methods[key]);
-      }
+      document.querySelector('#saveToPinboard').addEventListener(
+        'click', page.pinboard.saveToPinboard);
+      document.querySelector('#readLater').addEventListener(
+        'click', page.pinboard.readLater);
+      document.querySelector('#unreadBookmarks').addEventListener(
+        'click', page.pinboard.unreadBookmarks);
+      document.querySelector('#allBookmarks').addEventListener(
+        'click', page.pinboard.allBookmarks);
     });
 });

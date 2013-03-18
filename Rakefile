@@ -54,7 +54,7 @@ end
 
 
 desc "bumps the version number based on given version"
-task :bump, [:version] do |t, args|
+task :bump, [:version] => [:lint, :spec] do |t, args|
   check 'git', 'Git', 'http://git-scm.com/'
 
   raise "Please specify version=x.x.x !" unless args.version
@@ -73,3 +73,9 @@ task :spec do
   sh 'phantomjs src/spec/lib/run-jasmine.js src/spec/SpecRunner.html'
 end
 
+desc "run JS Hint on source files"
+task :lint do
+  check 'jshint', 'JS Hint', 'http://www.jshint.com/'
+  system "jshint --config .jshintrc src/javascripts"
+  exit if $?
+end
