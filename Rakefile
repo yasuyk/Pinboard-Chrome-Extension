@@ -26,7 +26,7 @@ def check(exec, name, url)
   exit
 end
 
-desc "provide icons"
+desc "Provide icons"
 task :icons do
   check 'convert', 'ImageMagick', 'http://www.imagemagick.org'
   check 'optipng', 'OptiPNG', 'http://optipng.sourceforge.net/'
@@ -47,13 +47,13 @@ Rake::PackageTask.new("pinboard", pinboard_version) do |t|
   t.package_files.include("src/**/*").exclude(/spec.*/)
 end
 
-desc "displays the current version"
+desc "Displays the current version"
 task :version do
   say "Current version: %s" % pinboard_version
 end
 
 
-desc "bumps the version number based on given version"
+desc "Bumps the version number based on given version"
 task :bump, [:version] => [:lint] do |t, args|
   check 'git', 'Git', 'http://git-scm.com/'
 
@@ -66,7 +66,7 @@ task :bump, [:version] => [:lint] do |t, args|
   sh 'git tag -a %s -m %s' % [args.version, args.version]
 end
 
-desc "run jasmine"
+desc "Run jasmine"
 task :spec do
   case RbConfig::CONFIG['host_os']
   when /darwin/
@@ -77,7 +77,7 @@ task :spec do
   end
 end
 
-desc "run JS Hint on source files"
+desc "Run JS Hint on source files"
 task :lint do
   check 'jshint', 'JS Hint', 'http://www.jshint.com/'
   system "jshint --config .jshintrc src/javascripts"
