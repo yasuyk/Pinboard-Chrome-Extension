@@ -1,4 +1,5 @@
 pinboard.contextMenus = (function() {
+  'use strict';
 
   var SAVE_TO_PINBOARD = 'Save to Pinboard';
   var SAVE_SELECTION_PINBOARD = 'Save Selection to Pinboard';
@@ -54,20 +55,20 @@ pinboard.contextMenus = (function() {
   var callback;
 
   var onclick = function(info, tab) {
-    var config;
-
     if (chrome.extension.lastError || chrome.runtime.lastError) {
-      console.log(chrome.extension.lastError);
-      console.log(chrome.runtime.lastError);
+      //console.log(chrome.extension.lastError);
+      //console.log(chrome.runtime.lastError);
+      return;
     } else {
-      if (info.menuItemId == MENU_ID_LINK) {
+      var config;
+      if (info.menuItemId === MENU_ID_LINK) {
         config = {
           url: info.linkUrl,
           title: info.linkUrl
         };
-      } else if (info.menuItemId == MENU_ID_IMAGE ||
-                 info.menuItemId == MENU_ID_AUDIO ||
-                 info.menuItemId == MENU_ID_VIDEO) {
+      } else if (info.menuItemId === MENU_ID_IMAGE ||
+                 info.menuItemId === MENU_ID_AUDIO ||
+                 info.menuItemId === MENU_ID_VIDEO) {
         config = {
           url: info.srcUrl,
           title: info.srcUrl

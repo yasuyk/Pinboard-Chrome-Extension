@@ -13,10 +13,26 @@ describe('popup', function() {
     };
 
     spyOn(document, 'addEventListener');
+
+    pinboard = {
+      contextMenus: {
+        setup: function() {}
+      },
+      saveToPinboard: function() {},
+      readLater: function() {},
+      unreadBookmarks: function() {},
+      allBookmarks: function() {},
+      saveToPinboard: function() {}
+    };
+    spyOn(pinboard.contextMenus, 'setup');
+    spyOn(pinboard, 'saveToPinboard');
+    spyOn(pinboard, 'readLater');
+    spyOn(pinboard, 'unreadBookmarks');
+    spyOn(pinboard, 'allBookmarks');
   });
 
   it('should add click event listeners' +
-     'when "DOMContentLoaded".', function() {
+     ' when "DOMContentLoaded".', function() {
 
        runs(function() {
          require(['popup']);
@@ -28,16 +44,17 @@ describe('popup', function() {
          loadFixtures('popup_fixture.html');
 
          document.addEventListener.mostRecentCall.args[1]();
-         chrome.runtime.getBackgroundPage.mostRecentCall.args[0](window);
+         listener = chrome.runtime.getBackgroundPage.mostRecentCall.args[0];
+         listener(window);
 
-         $('.save_to_pinboard').trigger('click');
-         expect(saveToPinboard).toHaveBeenCalled();
-         $('.read_later').trigger('click');
-         expect(readLater).toHaveBeenCalled();
-         $('.unread_bookmarks').trigger('click');
-         expect(unreadBookmarks).toHaveBeenCalled();
-         $('.all_bookmarks').trigger('click');
-         expect(readLater).toHaveBeenCalled();
+         $('#saveToPinboard').click();
+         expect(pinboard.saveToPinboard).toHaveBeenCalled();
+         $('#readLater').click();
+         expect(pinboard.readLater).toHaveBeenCalled();
+         $('#unreadBookmarks').click();
+         expect(pinboard.unreadBookmarks).toHaveBeenCalled();
+         $('#allBookmarks').click();
+         expect(pinboard.readLater).toHaveBeenCalled();
        });
      });
 });

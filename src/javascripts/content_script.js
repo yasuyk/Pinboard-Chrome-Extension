@@ -1,5 +1,6 @@
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
+    'use strict';
     if (request.action && sender.tab) {
       switch (request.action) {
       case 'getSelection':

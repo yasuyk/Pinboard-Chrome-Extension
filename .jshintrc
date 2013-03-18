@@ -1,0 +1,36 @@
+// -*- mode: javascript -*-
+
+// JSHint configuration file
+// For information about options, see http://www.jshint.com/docs/#options
+{
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "plusplus": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+//  "maxparams": ,
+  "maxdepth": 2,
+  "maxstatements": 40,
+//  "maxcomplexity": true,
+  "maxlen": 80,
+
+  "globals": {
+    "chrome": false,
+    "window": false,
+    "document": false,
+    "pinboard": false
+  }
+}
