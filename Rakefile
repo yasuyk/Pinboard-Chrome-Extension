@@ -70,6 +70,8 @@ desc "run jasmine"
 task :spec do
   case RbConfig::CONFIG['host_os']
   when /darwin/
+    # For information about '--allow-file-access-from-files', see the following URL.
+    # https://github.com/velesin/jasmine-jquery#cross-domain-policy-problems-under-chrome
     sh 'open /Applications/Google\ Chrome.app src/spec/SpecRunner.html' +
       ' --args --allow-file-access-from-files'
   end
