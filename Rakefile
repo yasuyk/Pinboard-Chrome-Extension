@@ -54,7 +54,7 @@ end
 
 
 desc "bumps the version number based on given version"
-task :bump, [:version] => [:lint, :spec] do |t, args|
+task :bump, [:version] => [:lint] do |t, args|
   check 'git', 'Git', 'http://git-scm.com/'
 
   raise "Please specify version=x.x.x !" unless args.version
@@ -66,11 +66,13 @@ task :bump, [:version] => [:lint, :spec] do |t, args|
   sh 'git tag -a %s -m %s' % [args.version, args.version]
 end
 
-desc "run jasmine with phantomjs"
+desc "run jasmine"
 task :spec do
-  check 'phantomjs', 'PhantomJS', 'http://phantomjs.org/'
-
-  sh 'phantomjs src/spec/lib/run-jasmine.js src/spec/SpecRunner.html'
+  case RbConfig::CONFIG['host_os']
+  when /darwin/
+    sh 'open /Applications/Google\ Chrome.app src/spec/SpecRunner.html' +
+      ' --args --allow-file-access-from-files'
+  end
 end
 
 desc "run JS Hint on source files"

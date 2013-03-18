@@ -11,14 +11,20 @@
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="lib/jasmine-jquery.js"></script>
   <script type="text/javascript" src="lib/require.js"></script>
+  <script type="text/javascript" src="helpers/chrome.js"></script>
+  <script type="text/javascript" src="helpers/fixture_path.js"></script>
 
   <!-- include source files here... -->
+  <script src="../javascripts/pinboard.js"></script>
+  <script src="../javascripts/context_menus.js"></script>
 
   <!-- include spec files here... -->
+  <script type="text/javascript" src="pinboard_spec.js"></script>
   <script type="text/javascript" src="content_script_spec.js"></script>
   <script type="text/javascript" src="chrome_event_listener_spec.js"></script>
   <script type="text/javascript" src="popup_spec.js"></script>
   <script type="text/javascript" src="context_menus_spec.js"></script>
+
   <script type="text/javascript">
     (function() {
       require = require.config({

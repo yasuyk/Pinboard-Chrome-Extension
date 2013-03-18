@@ -1,20 +1,5 @@
 describe('context_menus', function() {
   beforeEach(function() {
-    chrome = {
-      contextMenus: {
-        create: function() {},
-        onClicked: {
-          addListener: function() {}
-        }
-      },
-      extension: {
-        lastError: null
-      },
-      runtime: {
-        lastError: null
-      }
-    };
-
     spyOn(chrome.contextMenus, 'create');
     spyOn(chrome.contextMenus.onClicked, 'addListener');
 

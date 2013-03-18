@@ -43,7 +43,6 @@ var pinboard = (function() {
     });
   };
 
-
   var readLater = function() {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       var tab = tabs[0];
@@ -67,11 +66,23 @@ var pinboard = (function() {
     window.open(BASE_URL);
   };
 
+  var addclickEventListeners = function(doc) {
+    doc.querySelector('#saveToPinboard').addEventListener(
+      'click', this.saveToPinboard);
+    doc.querySelector('#readLater').addEventListener(
+      'click', this.readLater);
+    doc.querySelector('#unreadBookmarks').addEventListener(
+      'click', this.unreadBookmarks);
+    doc.querySelector('#allBookmarks').addEventListener(
+      'click', this.allBookmarks);
+  };
+
   return {
     saveToPinboardPopup: saveToPinboardPopup,
     saveToPinboard: saveToPinboard,
     readLater: readLater,
     unreadBookmarks: unreadBookmarks,
-    allBookmarks: allBookmarks
+    allBookmarks: allBookmarks,
+    addclickEventListeners: addclickEventListeners
   };
 })();
