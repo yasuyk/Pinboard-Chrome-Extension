@@ -1,13 +1,5 @@
 describe('content_scripts', function() {
   beforeEach(function() {
-    chrome = {
-      extension: {
-        onMessage: {
-          addListener: function() {}
-        }
-      }
-    };
-
     spyOn(chrome.extension.onMessage, 'addListener');
     callback = jasmine.createSpy();
   });

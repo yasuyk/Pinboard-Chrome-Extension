@@ -1,38 +1,14 @@
 describe('chrome/event_listener', function() {
   beforeEach(function() {
-    chrome = {
-      tabs: {
-        onUpdated: {
-          addListener: function() {}
-        },
-        remove: function() {}
-      },
-      commands: {
-        onCommand: {
-          addListener: function() {}
-        }
-      }
-    };
-
     spyOn(chrome.tabs, 'remove');
     spyOn(chrome.tabs.onUpdated, 'addListener');
     spyOn(chrome.commands.onCommand, 'addListener');
 
-    pinboard = {
-      contextMenus: {
-        setup: function() {}
-      },
-      saveToPinboard: function() {},
-      readLater: function() {},
-      unreadBookmarks: function() {},
-      allBookmarks: function() {},
-      saveToPinboard: function() {}
-    };
-    spyOn(pinboard.contextMenus, 'setup');
     spyOn(pinboard, 'saveToPinboard');
     spyOn(pinboard, 'readLater');
     spyOn(pinboard, 'unreadBookmarks');
     spyOn(pinboard, 'allBookmarks');
+    spyOn(pinboard.contextMenus, 'setup');
   });
 
   it('should add listeners when loaded.', function() {
@@ -40,7 +16,6 @@ describe('chrome/event_listener', function() {
       require(['chrome/event_listener']);
     });
     waits(100);
-
 
     runs(function() {
       listener = chrome.tabs.onUpdated.
