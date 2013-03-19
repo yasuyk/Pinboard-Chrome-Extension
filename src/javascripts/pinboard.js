@@ -1,6 +1,6 @@
 /* jshint -W079, -W098 */
-// suppress "Redefinition of pinboard'. (W079)
-// suppress "'pinboard' is defined but never used. (W098)"
+// suppress error message about "Redefinition of pinboard'. (W079)
+// suppress error message about "'pinboard' is defined but never used. (W098)"
 
 var pinboard = (function() {
   'use strict';
