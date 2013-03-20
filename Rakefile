@@ -77,9 +77,10 @@ task :spec do
   end
 end
 
-desc "Run JS Hint on source files"
+desc "Run JS Hint and Closure Linter on source files"
 task :lint do
   check 'jshint', 'JS Hint', 'http://www.jshint.com/'
-  system "jshint --config .jshintrc src/javascripts"
-  exit if $?
+  check 'gjslint', 'Closure Linter', 'https://developers.google.com/closure/utilities/docs/linter_howto'
+  sh "jshint src/javascripts"
+  sh "gjslint --nojsdoc -r ./src/javascripts"
 end
