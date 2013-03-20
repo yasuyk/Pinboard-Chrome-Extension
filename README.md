@@ -12,7 +12,7 @@ Google Chrome Extention for Pinboard (http://pinboard.in).
 
 the following contents can be saved :
 
-   - web page
+   - web page URL
    - selected URL
    - selected text
    - Image URL
