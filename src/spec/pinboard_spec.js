@@ -8,6 +8,13 @@ describe('pinboad', function() {
     expect($('#saveToPinboard')).toExist();
   });
 
+  function eventFire(selector, etype){
+    var el = document.querySelector(selector);
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+
   it('should add click event listeners', function() {
 
     spyOn(pinboard, 'saveToPinboard');
@@ -16,13 +23,13 @@ describe('pinboad', function() {
     spyOn(pinboard, 'allBookmarks');
 
     pinboard.addclickEventListeners(document);
-    $('#saveToPinboard').click();
+    eventFire('#saveToPinboard', 'click');
     expect(pinboard.saveToPinboard).toHaveBeenCalled();
-    $('#readLater').click();
+    eventFire('#readLater', 'click');
     expect(pinboard.readLater).toHaveBeenCalled();
-    $('#unreadBookmarks').click();
+    eventFire('#unreadBookmarks', 'click');
     expect(pinboard.unreadBookmarks).toHaveBeenCalled();
-    $('#allBookmarks').click();
+    eventFire('#allBookmarks', 'click');
     expect(pinboard.readLater).toHaveBeenCalled();
   });
 });
