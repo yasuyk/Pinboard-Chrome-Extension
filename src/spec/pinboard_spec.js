@@ -10,19 +10,19 @@ describe('pinboad', function() {
 
   it('should add click event listeners', function() {
 
-       spyOn(pinboard, 'saveToPinboard');
-       spyOn(pinboard, 'readLater');
-       spyOn(pinboard, 'unreadBookmarks');
-       spyOn(pinboard, 'allBookmarks');
+    spyOn(pinboard, 'saveToPinboard');
+    spyOn(pinboard, 'readLater');
+    spyOn(pinboard, 'unreadBookmarks');
+    spyOn(pinboard, 'allBookmarks');
 
-       pinboard.addclickEventListeners(document);
-       $('#saveToPinboard').click();
-       expect(pinboard.saveToPinboard).toHaveBeenCalled();
-       $('#readLater').click();
-       expect(pinboard.readLater).toHaveBeenCalled();
-       $('#unreadBookmarks').click();
-       expect(pinboard.unreadBookmarks).toHaveBeenCalled();
-       $('#allBookmarks').click();
-       expect(pinboard.readLater).toHaveBeenCalled();
-     });
+    pinboard.addclickEventListeners(document);
+    $('#saveToPinboard').click();
+    expect(pinboard.saveToPinboard).toHaveBeenCalled();
+    $('#readLater').click();
+    expect(pinboard.readLater).toHaveBeenCalled();
+    $('#unreadBookmarks').click();
+    expect(pinboard.unreadBookmarks).toHaveBeenCalled();
+    $('#allBookmarks').click();
+    expect(pinboard.readLater).toHaveBeenCalled();
+  });
 });
