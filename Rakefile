@@ -54,7 +54,7 @@ end
 
 
 desc "Bumps the version number based on given version"
-task :bump, [:version] => [:lint] do |t, args|
+task :bump, [:version] =>  [:lint, :phantomspec] do |t, args|
   check 'git', 'Git', 'http://git-scm.com/'
 
   raise "Please specify version=x.x.x !" unless args.version
@@ -66,8 +66,8 @@ task :bump, [:version] => [:lint] do |t, args|
   sh 'git tag -a %s -m %s' % [args.version, args.version]
 end
 
-desc "Run jasmine"
-task :spec do
+desc "Run jasmine in Chrome"
+task :chromespec do
   case RbConfig::CONFIG['host_os']
   when /darwin/
     # For information about '--allow-file-access-from-files', see the following URL.
@@ -76,6 +76,12 @@ task :spec do
       ' --args --allow-file-access-from-files'
   end
 end
+
+desc "Run jasmine via PhantomJS"
+task :phantomspec do
+  sh "phantomjs src/spec/helpers/run-jasmine.js src/spec/SpecRunner.html"
+end
+
 
 desc "Run JS Hint and Closure Linter on source files"
 task :lint do
