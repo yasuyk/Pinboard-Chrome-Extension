@@ -80,7 +80,7 @@ task :bump, [:version] => [:lint, :phantomspec] do |t, args|
 end
 
 desc "Run jasmine in Chrome"
-task :chromespec do
+task :spec_chrome do
   case RbConfig::CONFIG['host_os']
   when /darwin/
     # For information about '--allow-file-access-from-files', see the following URL.
@@ -91,7 +91,7 @@ task :chromespec do
 end
 
 desc "Run jasmine via PhantomJS"
-task :phantomspec do
+task :spec_phantomjs do
   sh "phantomjs src/spec/helpers/run-jasmine.js src/spec/SpecRunner.html"
 end
 
