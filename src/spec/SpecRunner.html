@@ -15,8 +15,9 @@
   <script type="text/javascript" src="helpers/fixture_path.js"></script>
 
   <!-- include source files here... -->
-  <script src="../javascripts/pinboard.js"></script>
-  <script src="../javascripts/context_menus.js"></script>
+  <script src="../js/global.js"></script>
+  <script src="../js/pinboard.js"></script>
+  <script src="../js/context_menus.js"></script>
 
   <!-- include spec files here... -->
   <script type="text/javascript" src="pinboard_spec.js"></script>
@@ -28,7 +29,7 @@
   <script type="text/javascript">
     (function() {
       require = require.config({
-        baseUrl: "../javascripts"
+        baseUrl: "../js"
       })
 
       var jasmineEnv = jasmine.getEnv();

@@ -13,7 +13,7 @@ describe('chrome/event_listener', function() {
 
   it('should add listeners when loaded.', function() {
     runs(function() {
-      require(['chrome/event_listener']);
+      require(['event_listener']);
     });
     waits(100);
 
