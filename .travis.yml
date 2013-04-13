@@ -1,3 +1,6 @@
 language: javascript
+before_install:
+  - npm install coffee-script
+  - npm install coffeelint
 script:
   rake travisci
