@@ -1,4 +1,8 @@
 require 'rake/packagetask'
+require 'rake/clean'
+
+CLEAN.include("src/js/**/*")
+CLOBBER.include("pkg/**/*")
 
 MANIFEST_FILE = File.expand_path(File.dirname(__FILE__) + '/src/manifest.json')
 VERSION_REGEX = Regexp.compile('"version" : "(?<version>\d\.\d\.\d)"')
