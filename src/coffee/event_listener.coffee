@@ -1,7 +1,4 @@
 chrome.commands.onCommand.addListener (command) ->
-  # can not specified greater than 4 commands.
-  # if specified, The following error occurs.
-  # "Too many commands specified for 'commands': The maximum is 4."
   switch command
     when 'save_to_pinboard' then pinboard.saveToPinboard()
     when 'read_later' then pinboard.readLater()
