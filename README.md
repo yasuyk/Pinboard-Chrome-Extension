@@ -1,5 +1,7 @@
 # Pinboard Chrome Extention
 
+[![Build Status](https://travis-ci.org/yasuyk/Pinboard-Chrome-Extension.png)](https://travis-ci.org/yasuyk/Pinboard-Chrome-Extension)
+
 Google Chrome Extention for Pinboard (http://pinboard.in).
 
 ### Shortcut menu for 'Save to Pinboard', 'Read Later', 'Unread bookmarks', 'All bookmarks'.
