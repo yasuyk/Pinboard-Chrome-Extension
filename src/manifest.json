@@ -36,7 +36,7 @@
   "background": {
     "scripts": ["js/pinboard.js",
                 "js/context_menus.js",
-                "js/chrome/event_listener.js"],
+                "js/event_listener.js"],
     "persistent": false
   },
 

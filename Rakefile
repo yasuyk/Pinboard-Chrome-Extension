@@ -45,13 +45,15 @@ task :icons do
   sh "optipng #{dir}/*.png"
 end
 
+task :package => :compile
 
-Rake::PackageTask.new("pinboard", pinboard_version) do |t|
+Rake::PackageTask.new "pinboard", pinboard_version  do |t|
   t.need_zip = true
   t.package_files.include("src/**/*").
     exclude(/coffee.*/). # exclude CoffeeScript
     exclude(/spec.*/)    # exclude spec code
 end
+
 
 desc "Displays the current version"
 task :version do
