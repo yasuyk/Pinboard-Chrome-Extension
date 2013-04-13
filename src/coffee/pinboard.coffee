@@ -1,7 +1,6 @@
-pinboard = {}
 
-pinboard.REGEX_SAVE_URL = /^http[s]?\:\/\/pinboard\.in\/add/
-pinboard.BASE_URL = 'https://pinboard.in'
+REGEX_SAVE_URL = /^http[s]?\:\/\/pinboard\.in\/add/
+BASE_URL = 'https://pinboard.in'
 
 pinboard.saveToPinboardPopup = (config) ->
   c = config or {}

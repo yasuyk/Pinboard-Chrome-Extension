@@ -34,7 +34,8 @@
   ],
 
   "background": {
-    "scripts": ["js/pinboard.js",
+    "scripts": ["js/global.js",
+                "js/pinboard.js",
                 "js/context_menus.js",
                 "js/event_listener.js"],
     "persistent": false

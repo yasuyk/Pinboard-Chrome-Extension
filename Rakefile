@@ -62,7 +62,8 @@ end
 
 desc "Compile to JavaScript"
 task :compile do
-  sh 'coffee -o src/js -bc src/coffee'
+  sh 'coffee -o src/js -c src/coffee'
+  sh 'coffee -o src/js -bc src/coffee/global.coffee'
  end
 
 desc "Bumps the version number based on given version"

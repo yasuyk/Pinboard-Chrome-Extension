@@ -1,1 +1,2 @@
-((nil . ((coffee-js-directory . "../javascripts/"))))
+((nil . ((coffee-js-directory . "../js/")
+       (eval . (coffee-cos-mode t)))))

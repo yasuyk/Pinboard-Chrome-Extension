@@ -1,23 +1,23 @@
 pinboard.contextMenus = {}
 
-pinboard.contextMenus.SAVE_TO_PINBOARD = 'Save to Pinboard'
-pinboard.contextMenus.SAVE_SELECTION_PINBOARD = 'Save Selection to Pinboard'
-pinboard.contextMenus.SAVE_URL_TO_PINBOARD = 'Save URL to Pinboard'
-pinboard.contextMenus.SAVE_IMAGE_URL_TO_PINBOARD = 'Save Image URL to Pinboard'
-pinboard.contextMenus.SAVE_AUDIO_URL_TO_PINBOARD = 'Save Audio URL to Pinboard'
-pinboard.contextMenus.SAVE_VIDEO_URL_TO_PINBOARD = 'Save Video URL to Pinboard'
+SAVE_TO_PINBOARD = 'Save to Pinboard'
+SAVE_SELECTION_PINBOARD = 'Save Selection to Pinboard'
+SAVE_URL_TO_PINBOARD = 'Save URL to Pinboard'
+SAVE_IMAGE_URL_TO_PINBOARD = 'Save Image URL to Pinboard'
+SAVE_AUDIO_URL_TO_PINBOARD = 'Save Audio URL to Pinboard'
+SAVE_VIDEO_URL_TO_PINBOARD = 'Save Video URL to Pinboard'
 
-pinboard.contextMenus.MENU_ID_PAGE = 'page'
-pinboard.contextMenus.MENU_ID_SELECTION = 'selection'
-pinboard.contextMenus.MENU_ID_LINK = 'link'
-pinboard.contextMenus.MENU_ID_IMAGE = 'image'
-pinboard.contextMenus.MENU_ID_AUDIO = 'audio'
-pinboard.contextMenus.MENU_ID_VIDEO = 'video'
-pinboard.contextMenus.callback = null
+MENU_ID_PAGE = 'page'
+MENU_ID_SELECTION = 'selection'
+MENU_ID_LINK = 'link'
+MENU_ID_IMAGE = 'image'
+MENU_ID_AUDIO = 'audio'
+MENU_ID_VIDEO = 'video'
+callback = null
 
-pinboard.contextMenus.setup (onClockCallback) ->
+pinboard.contextMenus.setup = (onClickCallback) ->
   chrome.contextMenus.create({
-    'title': @SAVE_TO_PINBOARD,
+    'title': SAVE_TO_PINBOARD,
     'id': MENU_ID_PAGE,
     'contexts': [MENU_ID_PAGE]
   })
@@ -48,8 +48,8 @@ pinboard.contextMenus.setup (onClockCallback) ->
     'contexts': [MENU_ID_VIDEO]
   })
 
-  chrome.contextMenus.onClicked.addListener(onclick)
-  pinboard.contextMenus.callback = onClockCallback
+  chrome.contextMenus.onClicked.addListener(pinboard.contextMenus.onclick)
+  callback = onClickCallback
 
 
 pinboard.contextMenus.onclick = (info, tab) ->
