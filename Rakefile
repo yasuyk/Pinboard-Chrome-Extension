@@ -96,10 +96,8 @@ task :spec_phantomjs do
 end
 
 
-desc "Run JS Hint and Closure Linter on source files"
+desc "Run CoffeeLint on source files"
 task :lint do
-  check 'jshint', 'JS Hint', 'http://www.jshint.com/'
-  check 'gjslint', 'Closure Linter', 'https://developers.google.com/closure/utilities/docs/linter_howto'
-  sh "jshint src/javascripts"
-  sh "gjslint --nojsdoc -r ./src/javascripts"
+  check 'coffeelint', 'CoffeeLint', 'http://www.coffeelint.org/'
+  sh "coffeelint -r src/coffee"
 end
