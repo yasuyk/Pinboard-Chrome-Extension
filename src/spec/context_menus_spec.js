@@ -7,10 +7,6 @@ describe('context_menus', function() {
   });
 
   it('should Save to Pinboard when menuItemId is page.', function() {
-       runs(function() {
-         require(['context_menus']);
-       });
-       waits(100);
 
        runs(function() {
          pinboard.contextMenus.setup(callback);
@@ -24,10 +20,6 @@ describe('context_menus', function() {
 
   it('should Save [Image, Audio, Video] URL to Pinboard ' +
      'when menuItemId is [iamge, audio, video].', function() {
-       runs(function() {
-         require(['context_menus']);
-       });
-       waits(100);
 
        runs(function() {
          pinboard.contextMenus.setup(callback);
@@ -45,10 +37,6 @@ describe('context_menus', function() {
 
   it('should Save (selectionText) to Pinboard ' +
      'when menuItemId is [page, selection].', function() {
-       runs(function() {
-         require(['context_menus']);
-       });
-       waits(100);
 
        runs(function() {
          pinboard.contextMenus.setup(callback);
