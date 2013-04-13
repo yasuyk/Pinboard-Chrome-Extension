@@ -26,7 +26,7 @@ pinboard.saveToPinboard = ->
         tab.id,
         {action: 'getSelection'},
         (selection) ->
-          saveToPinboardPopup({
+          pinboard.saveToPinboardPopup({
             url: tab.url,
             title: tab.title,
             description: selection
@@ -48,12 +48,12 @@ pinboard.unreadBookmarks = ->  window.open(BASE_URL + '/toread/')
 
 pinboard.allBookmarks = ->  window.open(BASE_URL)
 
-pinboard.addclickEventListeners = (doc) ->
+pinboard.addclickEventListeners = (doc) =>
   doc.querySelector('#saveToPinboard').addEventListener(
-    'click', @.saveToPinboard)
+    'click', pinboard.saveToPinboard)
   doc.querySelector('#readLater').addEventListener(
-    'click', @.readLater)
+    'click', pinboard.readLater)
   doc.querySelector('#unreadBookmarks').addEventListener(
-    'click', @.unreadBookmarks)
+    'click', pinboard.unreadBookmarks)
   doc.querySelector('#allBookmarks').addEventListener(
-    'click', @.allBookmarks)
+    'click', pinboard.allBookmarks)
