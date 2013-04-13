@@ -19,7 +19,7 @@
 
   "browser_action": {
     "default_title": "Pinboard",
-    "default_popup": "popup.html",
+    "default_popup": "html/popup.html",
     "default_icon": {
       "19": "images/pinboard_icon_19.png",
       "38": "images/pinboard_icon_38.png"
@@ -41,7 +41,7 @@
     "persistent": false
   },
 
-  "options_page": "options.html",
+  "options_page": "html/options.html",
 
   "icons": {
     "16": "images/pinboard_icon_16.png",
