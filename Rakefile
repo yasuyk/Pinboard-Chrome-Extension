@@ -101,3 +101,6 @@ task :lint do
   check 'coffeelint', 'CoffeeLint', 'http://www.coffeelint.org/'
   sh "coffeelint -r src/coffee"
 end
+
+desc "task for travis-ci"
+task :travisci => [:compile, :lint, :spec_phantomjs]
