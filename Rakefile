@@ -1,4 +1,8 @@
 require 'rake/packagetask'
+require 'rake/clean'
+
+CLEAN.include("src/js/**/*")
+CLOBBER.include("pkg/**/*")
 
 MANIFEST_FILE = File.expand_path(File.dirname(__FILE__) + '/src/manifest.json')
 VERSION_REGEX = Regexp.compile('"version" : "(?<version>\d\.\d\.\d)"')
@@ -41,20 +45,29 @@ task :icons do
   sh "optipng #{dir}/*.png"
 end
 
+task :package => :compile
 
-Rake::PackageTask.new("pinboard", pinboard_version) do |t|
+Rake::PackageTask.new "pinboard", pinboard_version  do |t|
   t.need_zip = true
-  t.package_files.include("src/**/*").exclude(/spec.*/)
+  t.package_files.include("src/**/*").
+    exclude(/coffee.*/). # exclude CoffeeScript
+    exclude(/spec.*/)    # exclude spec code
 end
+
 
 desc "Displays the current version"
 task :version do
   say "Current version: %s" % pinboard_version
 end
 
+desc "Compile to JavaScript"
+task :compile do
+  sh 'coffee -o src/js -c src/coffee'
+  sh 'coffee -o src/js -bc src/coffee/global.coffee'
+ end
 
 desc "Bumps the version number based on given version"
-task :bump, [:version] =>  [:lint, :phantomspec] do |t, args|
+task :bump, [:version] => [:lint, :phantomspec] do |t, args|
   check 'git', 'Git', 'http://git-scm.com/'
 
   raise "Please specify version=x.x.x !" unless args.version
