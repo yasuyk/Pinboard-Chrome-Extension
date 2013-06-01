@@ -4,6 +4,7 @@ require 'rake/clean'
 CLEAN.include("src/js/**/*")
 CLOBBER.include("pkg/**/*")
 
+PROJECT_ROOT_DIR = File.dirname(__FILE__)
 MANIFEST_FILE = File.expand_path(File.dirname(__FILE__) + '/src/manifest.json')
 VERSION_REGEX = Regexp.compile('"version" : "(?<version>\d\.\d\.\d)"')
 
@@ -48,8 +49,9 @@ end
 task :package => :compile
 
 Rake::PackageTask.new "pinboard", pinboard_version  do |t|
+  t.package_dir = "../pkg"
   t.need_zip = true
-  t.package_files.include("src/**/*").
+  t.package_files.include("**/*").
     exclude(/coffee.*/). # exclude CoffeeScript
     exclude(/spec.*/)    # exclude spec code
 end
@@ -67,7 +69,7 @@ task :compile do
  end
 
 desc "Bumps the version number based on given version"
-task :bump, [:version] => [:lint, :phantomspec] do |t, args|
+task :bump, [:version] => [:lint, :spec_phantomjs] do |t, args|
   check 'git', 'Git', 'http://git-scm.com/'
 
   raise "Please specify version=x.x.x !" unless args.version
@@ -100,7 +102,7 @@ end
 desc "Run CoffeeLint on source files"
 task :lint do
   check 'coffeelint', 'CoffeeLint', 'http://www.coffeelint.org/'
-  sh "coffeelint -r src/coffee"
+  sh "coffeelint -r #{PROJECT_ROOT_DIR}/src/coffee"
 end
 
 desc "task for travis-ci"
