@@ -92,6 +92,7 @@ end
 
 desc "Run jasmine via PhantomJS"
 task :spec_phantomjs do
+  check 'phantomjs', 'PhantomJS', 'http://www.phantomjs.org/'
   sh "phantomjs src/spec/helpers/run-jasmine.js src/spec/SpecRunner.html"
 end
 
