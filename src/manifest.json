@@ -13,8 +13,8 @@
     "storage",
     "tabs",
     "contextMenus",
-    "http://*/",
-    "https://*/"
+    "http://*/*",
+    "https://*/*"
   ],
 
   "browser_action": {
