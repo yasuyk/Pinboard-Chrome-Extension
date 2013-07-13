@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.8 (2013-07-13)
+
+[FIXED] "Save to pinboard" don't react with keyboard shortacut and click on Chrome 28.
+
 ## 0.0.7 (2013-03-17)
 
 [New] You can save to Pinboard via context menus.
