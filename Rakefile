@@ -2,6 +2,7 @@ require 'rake/packagetask'
 
 MANIFEST_FILE = File.expand_path(File.dirname(__FILE__) + '/src/manifest.json')
 VERSION_REGEX = Regexp.compile('"version" : "(?<version>\d\.\d\.\d)"')
+PROJECT_ROOT_DIR = File.dirname(__FILE__)
 
 def pinboard_version
   version = ""
@@ -43,8 +44,10 @@ end
 
 
 Rake::PackageTask.new("pinboard", pinboard_version) do |t|
+  t.package_dir = "../pkg"
   t.need_zip = true
-  t.package_files.include("src/**/*").exclude(/spec.*/)
+  FileUtils.cd('src')
+  t.package_files.include("**/*").exclude(/spec.*/)
 end
 
 desc "displays the current version"
