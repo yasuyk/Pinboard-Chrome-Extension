@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.9 (2013-07-14)
+
+[CHANGED] some minor improvements
+
 ## 0.0.8 (2013-07-13)
 
 [FIXED] "Save to pinboard" don't react with keyboard shortacut and click on Chrome 28.
