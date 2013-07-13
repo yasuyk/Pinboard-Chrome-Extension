@@ -29,4 +29,6 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   }
 });
 
-pinboard.contextMenus.setup(pinboard.saveToPinboardPopup);
+chrome.runtime.onInstalled.addListener(function() {
+  pinboard.contextMenus.setup(pinboard.saveToPinboardPopup);
+});
