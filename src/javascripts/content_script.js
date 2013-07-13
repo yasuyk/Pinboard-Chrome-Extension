@@ -1,4 +1,4 @@
-chrome.extension.onMessage.addListener(
+chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     'use strict';
     if (request.action && sender.tab) {
