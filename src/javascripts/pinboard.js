@@ -30,16 +30,11 @@ var pinboard = (function() {
       var tab = tabs[0];
 
       if (!tab.url.match(REGEX_SAVE_URL)) {
-        chrome.tabs.sendMessage(
-          tab.id,
-          {action: 'getSelection'},
-          function(selection) {
-            saveToPinboardPopup({
-              url: tab.url,
-              title: tab.title,
-              description: selection
-            });
-          });
+        saveToPinboardPopup({
+          url: tab.url,
+          title: tab.title,
+          description: window.getSelection().toString()
+        });
       }
     });
   };
