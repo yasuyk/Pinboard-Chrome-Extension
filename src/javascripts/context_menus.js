@@ -1,5 +1,5 @@
 pinboard.contextMenus = (function() {
-  'use strict';
+  // 'use strict';
 
   var SAVE_TO_PINBOARD = 'Save to Pinboard';
   var SAVE_SELECTION_PINBOARD = 'Save Selection to Pinboard';
