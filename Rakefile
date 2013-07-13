@@ -83,6 +83,5 @@ end
 desc "run JS Hint on source files"
 task :lint do
   check 'jshint', 'JS Hint', 'http://www.jshint.com/'
-  system "jshint --config .jshintrc src/javascripts"
-  exit if $?
+  sh "jshint --config #{PROJECT_ROOT_DIR}/.jshintrc #{PROJECT_ROOT_DIR}/src/javascripts"
 end
