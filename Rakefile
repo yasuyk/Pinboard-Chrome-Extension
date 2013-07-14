@@ -1,7 +1,7 @@
 require 'rake/packagetask'
 
 MANIFEST_FILE = File.expand_path(File.dirname(__FILE__) + '/src/manifest.json')
-VERSION_REGEX = Regexp.compile('"version" : "(?<version>\d\.\d\.\d)"')
+VERSION_REGEX = Regexp.compile('"version" : "(?<version>\d+\.\d+\.\d+)"')
 PROJECT_ROOT_DIR = File.dirname(__FILE__)
 
 def pinboard_version
@@ -62,7 +62,7 @@ task :bump, [:version] => [:lint] do |t, args|
 
   raise "Please specify version=x.x.x !" unless args.version
   version_path = File.open(MANIFEST_FILE)
-  version_text = File.read(version_path).sub(/"version" : "\d\.\d\.\d"/, "\"version\" : \"#{args.version}\"")
+  version_text = File.read(version_path).sub(/"version" : "\d+\.\d+\.\d+"/, "\"version\" : \"#{args.version}\"")
   say "Updating Pinboard to version %s" % args.version
   File.open(version_path, 'w') { |f| f.write version_text }
   sh 'git commit -am "Bump version to %s"' % args.version
