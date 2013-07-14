@@ -26,6 +26,13 @@
     }
   },
 
+  "content_scripts": [
+    {
+      "js": ["javascripts/content_script.js"],
+      "matches": [ "http://*/*", "https://*/*"]
+    }
+  ],
+
   "background": {
     "scripts": ["javascripts/pinboard.js",
                 "javascripts/context_menus.js",
