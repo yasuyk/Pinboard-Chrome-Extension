@@ -19,7 +19,7 @@
   "quotmark": "single",
   "undef": true,
   "unused": true,
-  "strict": false, // TODO: 'use strict' causes <error: illegal access> on Chrome 28.
+  "strict": true,
   "trailing": true,
 //  "maxparams": ,
   "maxdepth": 2,

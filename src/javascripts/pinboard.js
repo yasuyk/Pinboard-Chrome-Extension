@@ -3,8 +3,7 @@
 // suppress "'pinboard' is defined but never used. (W098)"
 
 var pinboard = (function() {
-// TODO: 'use strict' causes <error: illegal access> on Chrome 28.
-//  'use strict';
+  'use strict';
 
   var REGEX_SAVE_URL = /^http[s]?\:\/\/pinboard\.in\/add/;
   var BASE_URL = 'https://pinboard.in';
