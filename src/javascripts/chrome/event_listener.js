@@ -2,7 +2,7 @@ chrome.commands.onCommand.addListener(function(command) {
   // can not specified greater than 4 commands.
   // if specified, The following error occurs.
   // "Too many commands specified for 'commands': The maximum is 4."
-  // 'use strict';
+  'use strict';
 
   switch (command) {
   case 'save_to_pinboard':
@@ -21,7 +21,7 @@ chrome.commands.onCommand.addListener(function(command) {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  // 'use strict';
+  'use strict';
   if (changeInfo.status === 'loading') {
     if (tab.url === 'https://pinboard.in/add') {
       chrome.tabs.remove(tabId);
