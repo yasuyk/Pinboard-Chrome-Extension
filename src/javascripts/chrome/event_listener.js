@@ -30,5 +30,6 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 });
 
 chrome.runtime.onInstalled.addListener(function() {
+  'use strict';
   pinboard.contextMenus.setup(pinboard.saveToPinboardPopup);
 });
