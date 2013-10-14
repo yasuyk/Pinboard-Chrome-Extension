@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.11 (2013-10-14)
+
+[CHANGED] some minor improvements.
+
 ## 0.0.10 (2013-07-14)
 
 [FIXED] Regression bug that can't capture selected text.
