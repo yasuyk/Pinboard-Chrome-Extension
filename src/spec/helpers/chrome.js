@@ -17,6 +17,12 @@ var chrome = {
     lastError: null
   },
   runtime: {
+    onMessage: {
+      addListener: function() {}
+    },
+    onInstalled: {
+      addListener: function() {}
+    },
     lastError: null,
     getBackgroundPage: function() {}
   },

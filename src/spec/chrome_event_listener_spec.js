@@ -3,6 +3,7 @@ describe('chrome/event_listener', function() {
     spyOn(chrome.tabs, 'remove');
     spyOn(chrome.tabs.onUpdated, 'addListener');
     spyOn(chrome.commands.onCommand, 'addListener');
+    spyOn(chrome.runtime.onInstalled, 'addListener');
 
     spyOn(pinboard, 'saveToPinboard');
     spyOn(pinboard, 'readLater');
@@ -35,7 +36,8 @@ describe('chrome/event_listener', function() {
       listener('all_bookmarks');
       expect(pinboard.readLater).toHaveBeenCalled();
 
-      // should call pinboard.contextMenus.setup when chrome.runtime.onInstalled
+      listener = chrome.runtime.onInstalled.addListener.mostRecentCall.args[0];
+      listener();
       expect(pinboard.contextMenus.setup).toHaveBeenCalled();
     });
   });

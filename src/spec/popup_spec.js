@@ -1,6 +1,6 @@
 describe('popup', function() {
   beforeEach(function() {
-     spyOn(chrome.runtime, 'getBackgroundPage');
+    spyOn(chrome.runtime, 'getBackgroundPage');
     spyOn(document, 'addEventListener');
     spyOn(pinboard, 'addclickEventListeners');
   });

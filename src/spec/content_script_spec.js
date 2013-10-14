@@ -1,6 +1,6 @@
 describe('content_scripts', function() {
   beforeEach(function() {
-    spyOn(chrome.extension.onMessage, 'addListener');
+    spyOn(chrome.runtime.onMessage, 'addListener');
     callback = jasmine.createSpy();
   });
 
@@ -13,9 +13,9 @@ describe('content_scripts', function() {
        waits(100);
 
        runs(function() {
-         listener = chrome.extension.onMessage.
-           addListener.mostRecentCall.args[0];
-         listener({action: 'getSelection'}, {tab: 'tab'}, callback);
+         console.log(callback);
+         listener = chrome.runtime.onMessage.addListener.mostRecentCall.args[0];
+         listener({action: 'getSelection'}, {id: 'id'}, callback);
          expect(callback).toHaveBeenCalled();
        });
      });
