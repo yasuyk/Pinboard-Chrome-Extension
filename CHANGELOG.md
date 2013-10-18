@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.12 (2013-10-18)
+
+[FIXED] "Save to Pinboard via context menus" is not working.
+
 ## 0.0.11 (2013-10-14)
 
 [CHANGED] some minor improvements.
