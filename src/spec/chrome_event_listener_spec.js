@@ -36,8 +36,6 @@ describe('chrome/event_listener', function() {
       listener('all_bookmarks');
       expect(pinboard.readLater).toHaveBeenCalled();
 
-      listener = chrome.runtime.onInstalled.addListener.mostRecentCall.args[0];
-      listener();
       expect(pinboard.contextMenus.setup).toHaveBeenCalled();
     });
   });
